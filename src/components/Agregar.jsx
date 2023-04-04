@@ -1,8 +1,9 @@
 import React from "react";
 import Navbar from "./Navbar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function Agregar() {
   const [nombre, setnombre] = useState("");
@@ -11,7 +12,9 @@ function Agregar() {
   const [email, setemail] = useState("");
 
   const contactos = useSelector((state) => state);
-  console.log(contactos);
+  const enviar = useDispatch();
+
+  const historial = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,6 +38,19 @@ function Agregar() {
     if (!nombre || !fecha || !numero || !email) {
       return toast.warning("Porfavor llenar todos los campos!");
     }
+
+    const data = {
+      nombre,
+      fecha,
+      numero,
+      email,
+      id: (contactos[contactos.length - 1]?.id || 0) + 1,
+    };
+
+    enviar({ type: "AÑADIR_CONTACTO", payload: data });
+    toast.success("El contacto fue añadido a la lista!");
+    historial("/");
+    console.log(contactos);
   };
 
   return (
