@@ -1,10 +1,18 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 function Inicio() {
   const contactos = useSelector((state) => state);
+
+  const enviar = useDispatch();
+
+  const eliminarContacto = (id) => {
+    enviar({ type: "ELIMINAR_CONTACTO", payload: id });
+    toast.success("Contacto eliminado!");
+  };
 
   return (
     <div>
@@ -45,6 +53,9 @@ function Inicio() {
                         Actualizar
                       </Link>
                       <button
+                        onClick={() => {
+                          eliminarContacto(contacto.id);
+                        }}
                         type="button"
                         className="btn btn-small btn-danger"
                       >

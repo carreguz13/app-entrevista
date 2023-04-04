@@ -24,6 +24,10 @@ const contactoReducer = (state = estadoInicial, action) => {
                const actualizarEstado = state.map(contacto => contacto.id === action.payload.id ? action.payload : contacto)
                state = actualizarEstado
                return state
+               case "ELIMINAR_CONTACTO":
+               const filtrarContactos = state.filter(contacto=> contacto.id !== action.payload && contacto)
+               state = filtrarContactos
+               return state
         default:
             return state
     }
