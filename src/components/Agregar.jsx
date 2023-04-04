@@ -6,10 +6,10 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 function Agregar() {
-  const [nombre, setnombre] = useState("");
-  const [fecha, setfecha] = useState("");
-  const [numero, setnumero] = useState("");
-  const [email, setemail] = useState("");
+  const [Nombre, setNombre] = useState("");
+  const [Nacimiento, setNacimiento] = useState("");
+  const [Telefono, setTelefono] = useState("");
+  const [Correo, setCorreo] = useState("");
 
   const contactos = useSelector((state) => state);
   const enviar = useDispatch();
@@ -20,11 +20,11 @@ function Agregar() {
     e.preventDefault();
 
     const checarEmail = contactos.find(
-      (contacto) => contacto.Correo === email && email
+      (contacto) => contacto.Correo === Correo && contacto
     );
 
     const checarNumero = contactos.find(
-      (telefono) => telefono.Telefono === parseInt(numero)
+      (telefono) => telefono.Telefono === parseInt(Telefono)
     );
 
     if (checarNumero) {
@@ -35,22 +35,21 @@ function Agregar() {
       return toast.error("Este email ya existe!");
     }
 
-    if (!nombre || !fecha || !numero || !email) {
+    if (!Nombre || !Nacimiento || !Telefono || !Correo) {
       return toast.warning("Porfavor llenar todos los campos!");
     }
 
     const data = {
-      nombre,
-      fecha,
-      numero,
-      email,
+      Nombre,
+      Nacimiento,
+      Telefono,
+      Correo,
       id: (contactos[contactos.length - 1]?.id || 0) + 1,
     };
 
     enviar({ type: "AÑADIR_CONTACTO", payload: data });
     toast.success("El contacto fue añadido a la lista!");
     historial("/");
-    console.log(contactos);
   };
 
   return (
@@ -66,9 +65,9 @@ function Agregar() {
                   type="text"
                   placeholder="Nombre"
                   className="form-control"
-                  value={nombre}
+                  value={Nombre}
                   onChange={(e) => {
-                    setnombre(e.target.value);
+                    setNombre(e.target.value);
                   }}
                 />
               </div>
@@ -77,9 +76,9 @@ function Agregar() {
                   type="date"
                   placeholder="Fecha de nacimiento"
                   className="form-control"
-                  value={fecha}
+                  value={Nacimiento}
                   onChange={(e) => {
-                    setfecha(e.target.value);
+                    setNacimiento(e.target.value);
                   }}
                 />
               </div>
@@ -88,9 +87,9 @@ function Agregar() {
                   type="number"
                   placeholder="Teléfono"
                   className="form-control"
-                  value={numero}
+                  value={Telefono}
                   onChange={(e) => {
-                    setnumero(e.target.value);
+                    setTelefono(e.target.value);
                   }}
                 />
               </div>
@@ -99,9 +98,9 @@ function Agregar() {
                   type="email"
                   placeholder="Correo electrónico"
                   className="form-control"
-                  value={email}
+                  value={Correo}
                   onChange={(e) => {
-                    setemail(e.target.value);
+                    setCorreo(e.target.value);
                   }}
                 />
               </div>
