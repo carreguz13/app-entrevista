@@ -1,3 +1,12 @@
 .btn-danger {
   margin-left: 10px;
 }
+
+.btninicio {
+  margin-top: 20px;
+  text-align: end;
+}
+
+.navbar-brand {
+  margin-left: 50px;
+}

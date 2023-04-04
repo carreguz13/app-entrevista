@@ -5,7 +5,6 @@ import Inicio from "./components/Inicio";
 import Actualizar from "./components/Actualizar";
 import Agregar from "./components/Agregar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-/////////////////////////////////////////////////////////////////////////////////////
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { Provider } from "react-redux";

@@ -19,8 +19,8 @@ function Inicio() {
       <Navbar />
       <div className="container">
         <div className="row">
-          <div className="col-md-12 text-right">
-            <Link to="/agregar" className="btn btn-outline-dark">
+          <div className="btninicio">
+            <Link to="/agregar" className="btn btn-outline-dark mt-5 mb-5">
               Añadir contacto a la lista
             </Link>
           </div>
