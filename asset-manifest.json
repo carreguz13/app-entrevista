@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/app-entrevista/static/css/main.c034802d.css",
+    "main.js": "/app-entrevista/static/js/main.44f36de7.js",
+    "static/js/787.909db225.chunk.js": "/app-entrevista/static/js/787.909db225.chunk.js",
+    "index.html": "/app-entrevista/index.html",
+    "main.c034802d.css.map": "/app-entrevista/static/css/main.c034802d.css.map",
+    "main.44f36de7.js.map": "/app-entrevista/static/js/main.44f36de7.js.map",
+    "787.909db225.chunk.js.map": "/app-entrevista/static/js/787.909db225.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c034802d.css",
+    "static/js/main.44f36de7.js"
+  ]
+}
